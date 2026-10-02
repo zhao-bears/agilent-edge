@@ -1,0 +1,19 @@
+{
+  "instrument_config": {
+    "eluents": {
+      "A1": "Water (0.1% Formic Acid)",
+      "B1": "Acetonitrile (0.1% Formic Acid)"
+    },
+    "offset_volume": null
+  },
+  "software_settings": {
+    "instrument_id": null,
+    "project_id": null,
+    "connection_string": "REPLACE_WITH_OPENLAB_CONNECTION_STRING",
+    "default_methods": {
+      "positive": "C:\\CDSProjects\\Methods\\lc_template.amx",
+      "smx": "C:\\CDSProjects\\Methods\\equilibration.smx",
+      "pmx": "C:\\CDSProjects\\Methods\\processing.pmx"
+    }
+  }
+}
