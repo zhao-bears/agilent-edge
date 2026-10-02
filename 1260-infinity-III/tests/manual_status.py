@@ -3,7 +3,7 @@
 Does not start a run or change the pump. Run this on the OpenLab PC after
 .env and the instrument JSON are filled in, with Acquisition already online:
 
-    uv run python manual_status.py
+    python tests/manual_status.py
 """
 
 import json
@@ -12,6 +12,9 @@ import sys
 from pathlib import Path
 
 from pydantic_settings import BaseSettings, SettingsConfigDict
+
+ROOT = Path(__file__).resolve().parent.parent
+sys.path.insert(0, str(ROOT))
 
 from driver import Driver
 
@@ -30,7 +33,7 @@ class Config(BaseSettings):
     instrument_config_path: str
 
     model_config = SettingsConfigDict(
-        env_file=Path(__file__).resolve().parent / ".env",
+        env_file=ROOT / ".env",
         env_file_encoding="utf-8",
         case_sensitive=False,
         extra="ignore",

@@ -9,7 +9,7 @@
   "software_settings": {
     "instrument_id": null,
     "project_id": null,
-    "connection_string": "REPLACE_WITH_OPENLAB_CONNECTION_STRING",
+    "connection_string": "net.pipe://localhost/Agilent/OpenLAB/",
     "default_methods": {
       "positive": "C:\\CDSProjects\\Methods\\lc_template.amx",
       "smx": "C:\\CDSProjects\\Methods\\equilibration.smx",

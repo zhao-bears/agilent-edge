@@ -19,11 +19,11 @@ Live state is published on `puda.<MACHINE_ID>.tlm.stream.status`.
 
 ## Setup
 
-Install Python 3.13 and [uv](https://docs.astral.sh/uv/) on the OpenLab PC.
+Use the Python 3.13 already installed on the OpenLab PC.
 
 ```bat
+python -m pip install -e .
 copy .env.example .env
-copy instrument.example.json C:\CDSProjects\1260-infinity-iii.json
 ```
 
 Edit `.env`:
@@ -33,7 +33,7 @@ Edit `.env`:
 - `AGILENT_SDK_DIR` — directory that contains both `OpenLab Acquisition` and `OpenLab Services`. Moses looks there for `Agilent.OpenLab.RawData.dll`, `Agilent.OpenLab.Storage.dll`, and `Agilent.OpenLab.SharedServices.dll`.
 - `AGILENT_AUTOMATION_CORE` — directory containing `Agilent.OpenLAB.Acquisition.AutomationCore.dll`.
 - `AGILENT_AUTOMATION_INSTRUMENT` — directory containing `Agilent.OpenLAB.Acquisition.AutomationInstrument.dll`.
-- `INSTRUMENT_CONFIG_PATH` — the JSON copied from `instrument.example.json`.
+- `INSTRUMENT_CONFIG_PATH` — `config.json` in this directory.
 
 In that JSON:
 
@@ -50,8 +50,7 @@ In that JSON:
 From this directory, on the OpenLab PC:
 
 ```bat
-uv sync
-uv run python main.py
+python main.py
 ```
 
 Or `start_edge.bat`.
@@ -59,7 +58,7 @@ Or `start_edge.bat`.
 Check the OpenLab connection without starting the edge or moving solvent. Acquisition should already be online:
 
 ```bat
-uv run python manual_status.py
+python tests/manual_status.py
 ```
 
 A successful check prints `{"status": "Idle"}` or another OpenLab state such as `Running`.
